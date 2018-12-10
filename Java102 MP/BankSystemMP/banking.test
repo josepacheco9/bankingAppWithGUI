@@ -1,0 +1,27 @@
+--disable_warnings
+USE bank;
+DROP TABLE IF EXISTS bkacc, users;
+--enable_warnings
+create table users (
+id int(11) not null auto_increment primary key,
+firstname varchar(30) not null,
+lastname varchar(30) not null,
+username varchar(50) not null unique key,
+password varchar(50) not null
+);
+insert into users (id, firstname, lastname, username, password) values('1', 'demo', 'user', 'demouser', 'password');
+insert into users (id, firstname, lastname, username, password) values('2', 'chevy', 'sargento', 'chev', '12345678'); 
+insert into users (id, firstname, lastname, username, password) values('3', 'jojo', 'pacheco', 'jo', '12345678');
+SELECT * FROM users;
+create table bkacc (
+accountNo int(10) not null auto_increment primary key,
+accountName varchar(30) not null,
+balance double not null,
+maturity varchar(18) null,
+term double null,
+interestRate double null,
+overdraftProtection double null,
+accountType varchar(3) not null
+);
+insert into bkacc(accountNo, accountName, balance, interestRate, accountType) values('100001', 'Jose Rizal', '20000', '0.01', 's');
+SELECT * from bkacc;
